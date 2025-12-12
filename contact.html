@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>밥심이의 일상 - CONTACT</title>
+    <meta
+      name="description"
+      content="평범한 대학생의 하루를 담은 공간 입니다"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/png" href="images/favicon-96x96.png" />
+
+    <!-- 리셋 CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+
+    <!-- 폰트 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 🆕 Jua 폰트 추가 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 스타일 -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="contact" class="big-bg">
+      <header class="page-header wrapper">
+        <h1>
+          <a href="index.html">
+            <img
+              class="logo"
+              src="images/logo.svg"
+              alt="밥심이의 일상 로고"
+              loading="lazy"
+            />
+          </a>
+        </h1>
+        <nav>
+          <ul class="main-nav">
+            <li><a href="news.html">News</a></li>
+            <li><a href="menu.html">Video</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="wrapper">
+        <h2 class="page-title">Contact</h2>
+        <form action="#" method="post">
+          <div>
+            <label for="name">이름</label>
+            <input
+              type="text"
+              id="name"
+              name="your-name"
+              placeholder="이름을 입력하세요"
+              aria-label="이름 입력"
+            />
+          </div>
+
+          <div>
+            <label for="email">메일 주소</label>
+            <input
+              type="email"
+              id="email"
+              name="your-email"
+              placeholder="example@gmail.com"
+              aria-label="메일 주소 입력"
+            />
+          </div>
+
+          <div>
+            <label for="message">메시지</label>
+            <textarea
+              id="message"
+              name="your-message"
+              placeholder="메시지를 입력하세요"
+              aria-label="메시지 입력"
+            ></textarea>
+          </div>
+
+          <input type="submit" class="button" value="전송" />
+        </form>
+      </div>
+      <!-- /.wrapper -->
+    </div>
+    <!-- /#contact -->
+
+    <section id="sns">
+      <div class="wrapper">
+        <!-- Instagram -->
+        <div class="sns-box">
+          <h3 class="sub-title">Instagram</h3>
+          <div
+            id="insta"
+            data-url="https://www.instagram.com/p/DQJwxVpEimN/embed"
+            style="width: 100%; max-width: 540px; margin: auto"
+          >
+            <p>인스타그램 불러오는 중...</p>
+          </div>
+        </div>
+
+        <!-- Twitter -->
+        <div class="sns-box">
+          <h3 class="sub-title">X (Twitter)</h3>
+          <a
+            class="twitter-timeline"
+            data-width="100%"
+            data-height="320"
+            href="https://twitter.com/wongabin176687?ref_src=twsrc%5Etfw"
+          >
+            트위터 타임라인 불러오는 중...
+          </a>
+        </div>
+
+        <!-- YouTube -->
+        <div class="sns-box">
+          <h3 class="sub-title">YouTube</h3>
+          <iframe
+            width="100%"
+            height="280"
+            src="https://www.youtube.com/embed/pwWeQHi_tZU?si=f72TlX53pU19nfih"
+            title="YouTube video player"
+            loading="lazy"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrapper">
+        <p><small>&copy; 2025 밥심이의 일상</small></p>
+      </div>
+    </footer>
+
+    <!-- 지연 로딩 스크립트 -->
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Instagram lazy load
+        const instaBox = document.getElementById("insta");
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              instaBox.innerHTML = `<iframe src="${instaBox.dataset.url}" width="100%" height="320" frameborder="0" loading="lazy"></iframe>`;
+              observer.disconnect();
+            }
+          });
+        });
+        observer.observe(instaBox);
+      });
+    </script>
+
+    <!-- 외부 스크립트 (비동기 로딩) -->
+    <script
+      async
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    ></script>
+  </body>
+</html>
