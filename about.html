@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>밥심이의 일상 - About</title>
+    <meta name="description" content="평범한 대학생의 하루를 담은 공간 입니다" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
+    
+    <style>
+      :root { --main-color: #5d4e37; --accent-color: #c9a86a; --bg-warm: #f5f0e8; --bg-cream: #faf7f2; --brown-dark: #4a3f2f; --brown-light: #8b7355; --link-color: #b89968; --hover-color: #d4af76; --button-color: #8b7355; --button-hover: #6d5a43; --base-font: "Jua", sans-serif; --title-font: "Jua", "Philosopher", serif; }
+      html { font-size: 100%; scroll-behavior: smooth; }
+      body { font-family: var(--base-font); line-height: 1.8; color: var(--main-color); margin: 0; background-color: var(--bg-cream); font-size: 16px; }
+      a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+      img { max-width: 100%; display: block; border-radius: 8px; }
+      .wrapper { max-width: 1100px; margin: 0 auto; padding: 0 4%; }
+      .big-bg { background-size: cover; background-position: center top; background-repeat: no-repeat; position: relative; }
+      .big-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(250, 247, 242, 0.3); pointer-events: none; }
+      .page-title { font-size: 5rem; font-family: var(--title-font); text-transform: uppercase; font-weight: normal; color: var(--brown-dark); text-shadow: 2px 2px 4px rgba(0,0,0,0.1); margin-bottom: 10px; text-align: center; }
+      .page-header { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; position: relative; z-index: 10; }
+      .logo { width: 210px; transition: transform 0.3s ease; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+      .logo:hover { transform: scale(1.05); }
+      .main-nav { display: flex; font-size: 1.1rem; text-transform: uppercase; list-style: none; margin-top: 20px; }
+      .main-nav li + li { margin-left: 30px; }
+      .main-nav a { color: var(--link-color); transition: all 0.3s ease; position: relative; font-weight: 500; }
+      .main-nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--hover-color); transition: width 0.3s ease; }
+      .main-nav a:hover::after { width: 100%; }
+      .main-nav a:hover { color: var(--hover-color); }
+      #about { background-image: url(images/2525.JPG); background-size: cover; background-position: center; min-height: 50vh; position: relative; }
+      #about::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(250, 247, 242, 0.3); pointer-events: none; z-index: 0; }
+      #about .page-title { position: relative; z-index: 1; }
+      #about .wrapper { position: relative; z-index: 1; }
+      .about-contents { padding: 60px 0; max-width: 900px; margin: 0 auto; }
+      .about-section { display: flex; flex-direction: column; gap: 30px; }
+      .about-card { background: #fff; padding: 35px; border-radius: 16px; box-shadow: 0 3px 20px rgba(139, 115, 85, 0.12); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+      .about-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(139, 115, 85, 0.18); }
+      .about-title { font-size: 1.5rem; color: var(--brown-dark); margin-bottom: 20px; font-family: var(--title-font); border-bottom: 2px solid var(--accent-color); padding-bottom: 10px; }
+      .about-card p { line-height: 2; color: var(--main-color); font-size: 1.05rem; margin-bottom: 1rem; }
+      .about-list { list-style: none; padding: 0; }
+      .about-list li { padding: 12px 0; border-bottom: 1px solid var(--bg-warm); font-size: 1.05rem; color: var(--main-color); transition: padding-left 0.3s ease; }
+      .about-list li:hover { padding-left: 10px; color: var(--brown-light); }
+      .about-list li:last-child { border-bottom: none; }
+      .interest-tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 15px; }
+      .tag { background: linear-gradient(135deg, var(--accent-color), var(--brown-light)); color: #fff; padding: 8px 18px; border-radius: 20px; font-size: 0.95rem; box-shadow: 0 2px 8px rgba(139, 115, 85, 0.2); transition: transform 0.2s ease; }
+      .tag:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3); }
+      footer { background: var(--brown-dark); text-align: center; padding: 30px 0; }
+      footer p { color: var(--bg-cream); font-size: 0.875rem; }
+      .lang-switch { position: fixed; top: 80px; right: 20px; z-index: 1000; display: flex; gap: 8px; background: rgba(255, 255, 255, 0.95); padding: 10px; border-radius: 25px; box-shadow: 0 4px 15px rgba(139, 115, 85, 0.25); }
+      .lang-btn { padding: 8px 16px; border: 2px solid #c9a86a; background: white; color: #5d4e37; border-radius: 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
+      .lang-btn:hover { background: #f5f0e8; transform: translateY(-2px); }
+      .lang-btn.active { background: linear-gradient(135deg, #c9a86a, #8b7355); color: white; border-color: #8b7355; }
+      .lang-ko { display: block; } .lang-jp { display: none; } .lang-cn { display: none; }
+      html[lang="ja"] .lang-ko { display: none; } html[lang="ja"] .lang-jp { display: block; } html[lang="ja"] .lang-cn { display: none; }
+      html[lang="zh"] .lang-ko { display: none; } html[lang="zh"] .lang-jp { display: none; } html[lang="zh"] .lang-cn { display: block; }
+      @media (max-width: 900px) { .page-title { font-size: 3.5rem; } .about-card { padding: 25px; } }
+      @media (max-width: 600px) {
+        .page-title { font-size: 2.5rem; }
+        .page-header { flex-direction: column; }
+        .main-nav { font-size: 1rem; margin-top: 10px; }
+        .main-nav li + li { margin-left: 20px; }
+        .about-card { padding: 20px; }
+        .about-title { font-size: 1.3rem; }
+        .interest-tags { gap: 8px; }
+        .tag { font-size: 0.9rem; padding: 6px 14px; }
+        .lang-switch { top: auto !important; bottom: 20px !important; right: 50% !important; transform: translateX(50%) !important; }
+        .lang-btn { padding: 6px 12px !important; font-size: 0.85rem !important; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="switchLang('ko')">한국어</button>
+      <button class="lang-btn" onclick="switchLang('ja')">日本語</button>
+      <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+    </div>
+
+    <div id="about" class="big-bg">
+      <header class="page-header wrapper">
+        <h1><a href="index.html"><img class="logo" src="images/logo.svg" alt="밥심이의 일상 로고" /></a></h1>
+        <nav>
+          <ul class="main-nav">
+            <li><a href="news.html">News</a></li>
+            <li><a href="menu.html">videos</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div class="wrapper"><h2 class="page-title">About</h2></div>
+    </div>
+
+    <div class="about-contents wrapper">
+      <section class="about-section">
+        <div class="about-card">
+          <div class="lang-ko">
+            <h3 class="about-title">👋 안녕하세요, 밥심이입니다</h3>
+            <p>평범한 대학생의 일상을 기록하는 유튜브 채널 '밥심이의 일상'을 운영하고 있어요.<br />특별하지 않지만 진솔한 하루하루를 영상으로 담아내고 있습니다.</p>
+          </div>
+          <div class="lang-jp">
+            <h3 class="about-title">👋 こんにちは、밥심이です</h3>
+            <p>普通の大学生の日常を記録するYouTubeチャンネル「밥심이의 일상」を運営しています。<br />特別ではないけど、素直な日々を映像に収めています。</p>
+          </div>
+          <div class="lang-cn">
+            <h3 class="about-title">👋 你好，我是밥심이</h3>
+            <p>我在运营记录普通大学生日常的YouTube频道"밥심이의 일상"。<br />虽然不特别，但用影像真实地记录着每一天。</p>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <div class="lang-ko">
+            <h3 class="about-title">🎬 채널 이야기</h3>
+            <p>'밥심이의 일상'은 2025년 10월에 시작했어요. 운전면허 도전기부터<br />시작해서, 학교 생활, 여행, 공부 등 소소한 일상을 담고 있습니다.</p>
+            <p>화려한 편집보다는 진솔한 이야기를, 특별한 이벤트보다는 평범한 순간들을 기록하고 싶었어요.<br />누군가의 하루에 작은 위로가 되길 바라는 마음으로 영상을 만들고 있습니다.</p>
+          </div>
+          <div class="lang-jp">
+            <h3 class="about-title">🎬 チャンネルストーリー</h3>
+            <p>「밥심이의 일상」は2025年10月に始まりました。運転免許への挑戦から始まり、<br />学校生活、旅行、勉強など小さな日常を収めています。</p>
+            <p>派手な編集より素直なストーリーを、特別なイベントより平凡な瞬間を記録したいと思いました。<br />誰かの一日に小さな慰めになることを願って映像を作っています。</p>
+          </div>
+          <div class="lang-cn">
+            <h3 class="about-title">🎬 频道故事</h3>
+            <p>"밥심이의 일상"于2025年10月开始。从驾照挑战开始，<br />记录着学校生活、旅行、学习等日常的点点滴滴。</p>
+            <p>比起华丽的剪辑更想记录真实的故事，比起特别的活动更想记录平凡的瞬间。<br />希望能成为某个人一天中的小小安慰，带着这样的心情制作视频。</p>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <div class="lang-ko">
+            <h3 class="about-title">✈️ 나의 여정</h3>
+            <ul class="about-list">
+              <li>🇯🇵 일본 도쿄 교환학생 1년</li>
+              <li>🇯🇵 일본 워킹홀리데이 8개월</li>
+              <li>🇨🇳 중국 3개 도시 여행 (텐진, 타이위안, 상하이)</li>
+              <li>🇰🇷 한국 여행 7박 8일</li>
+              <li>🚗 운전면허 도전기</li>
+            </ul>
+          </div>
+          <div class="lang-jp">
+            <h3 class="about-title">✈️ 私の旅</h3>
+            <ul class="about-list">
+              <li>🇯🇵 日本東京 交換留学 1年</li>
+              <li>🇯🇵 日本ワーキングホリデー 8ヶ月</li>
+              <li>🇨🇳 中国3都市旅行（天津、太原、上海）</li>
+              <li>🇰🇷 韓国旅行 7泊8日</li>
+              <li>🚗 運転免許への挑戦</li>
+            </ul>
+          </div>
+          <div class="lang-cn">
+            <h3 class="about-title">✈️ 我的旅程</h3>
+            <ul class="about-list">
+              <li>🇯🇵 日本东京 交换留学 1年</li>
+              <li>🇯🇵 日本打工度假 8个月</li>
+              <li>🇨🇳 中国3城市旅行（天津、太原、上海）</li>
+              <li>🇰🇷 韩国旅行 7晚8天</li>
+              <li>🚗 驾照挑战</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <div class="lang-ko">
+            <h3 class="about-title">📚 관심사</h3>
+            <div class="interest-tags">
+              <span class="tag">브이로그</span>
+              <span class="tag">여행</span>
+              <span class="tag">일상</span>
+              <span class="tag">공부</span>
+              <span class="tag">언어 (일본어, 중국어)</span>
+              <span class="tag">일본 취업 준비</span>
+            </div>
+          </div>
+          <div class="lang-jp">
+            <h3 class="about-title">📚 関心事</h3>
+            <div class="interest-tags">
+              <span class="tag">Vlog</span>
+              <span class="tag">旅行</span>
+              <span class="tag">日常</span>
+              <span class="tag">勉強</span>
+              <span class="tag">言語（日本語、中国語）</span>
+              <span class="tag">日本就職準備</span>
+            </div>
+          </div>
+          <div class="lang-cn">
+            <h3 class="about-title">📚 兴趣</h3>
+            <div class="interest-tags">
+              <span class="tag">Vlog</span>
+              <span class="tag">旅行</span>
+              <span class="tag">日常</span>
+              <span class="tag">学习</span>
+              <span class="tag">语言（日语、中文）</span>
+              <span class="tag">日本就业准备</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <div class="lang-ko">
+            <h3 class="about-title">💭 블로그를 만든 이유</h3>
+            <p>유튜브 영상만으로는 담지 못한 이야기들을 글로 남기고 싶었어요.<br />영상 뒤편의 생각들, 그날의 기분, 작은 에피소드들을 이곳에 기록하고 있습니다.</p>
+            <p>이 공간이 저의 성장 일기이자, 누군가에게 공감과 위로가 되는 곳이 되길 바랍니다.</p>
+          </div>
+          <div class="lang-jp">
+            <h3 class="about-title">💭 ブログを作った理由</h3>
+            <p>YouTube動画だけでは伝えきれないストーリーを文章で残したかったです。<br />映像の裏側の考え、その日の気分、小さなエピソードをここに記録しています。</p>
+            <p>この空間が私の成長日記であり、誰かには共感と慰めになる場所になることを願っています。</p>
+          </div>
+          <div class="lang-cn">
+            <h3 class="about-title">💭 创建博客的原因</h3>
+            <p>想用文字记录YouTube视频无法完全表达的故事。<br />视频背后的想法、当天的心情、小小的插曲都在这里记录。</p>
+            <p>希望这个空间既是我的成长日记，也能成为某些人共鸣和安慰的地方。</p>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <div class="lang-ko">
+            <h3 class="about-title">🎯 앞으로의 계획</h3>
+            <p>현재는 일본 취업을 목표로 준비하고 있어요.<br />그 과정에서의 고민, 도전, 실패와 성공의 순간들을 계속 기록해 나갈 예정입니다.</p>
+            <p>앞으로도 꾸준히, 진솔하게, '밥심'으로 살아가는 모습을 보여드릴게요. 함께 걸어가 주세요! 😊</p>
+          </div>
+          <div class="lang-jp">
+            <h3 class="about-title">🎯 今後の計画</h3>
+            <p>現在は日本就職を目標に準備しています。<br />その過程での悩み、挑戦、失敗と成功の瞬間を続けて記録していく予定です。</p>
+            <p>これからも着実に、素直に、「밥심」で生きていく姿をお見せします。一緒に歩いてください！😊</p>
+          </div>
+          <div class="lang-cn">
+            <h3 class="about-title">🎯 未来的计划</h3>
+            <p>目前正在为日本就业做准备。<br />将继续记录这个过程中的烦恼、挑战、失败和成功的瞬间。</p>
+            <p>今后也会坚持用真诚的态度，展现以"밥심"生活的样子。请一起同行吧！😊</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="wrapper"><p><small>&copy; 2025 밥심이의 일상</small></p></div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedLang = localStorage.getItem('preferredLang') || 'ko';
+        applyLanguage(savedLang);
+      });
+      function switchLang(lang) { localStorage.setItem('preferredLang', lang); applyLanguage(lang); }
+      function applyLanguage(lang) {
+        document.documentElement.lang = lang;
+        const buttons = document.querySelectorAll('.lang-btn');
+        buttons.forEach(btn => {
+          btn.classList.remove('active');
+          if ((lang === 'ko' && btn.textContent === '한국어') || (lang === 'ja' && btn.textContent === '日本語') || (lang === 'zh' && btn.textContent === '中文')) {
+            btn.classList.add('active');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

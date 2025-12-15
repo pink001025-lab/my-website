@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>밥심이의 일상 - Videos</title>
+    <meta name="description" content="평범한 대학생의 하루를 담은 공간 입니다" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
+    
+    <style>
+      :root { --main-color: #5d4e37; --accent-color: #c9a86a; --bg-warm: #f5f0e8; --bg-cream: #faf7f2; --brown-dark: #4a3f2f; --brown-light: #8b7355; --link-color: #b89968; --hover-color: #d4af76; --base-font: "Jua", sans-serif; --title-font: "Jua", "Philosopher", serif; }
+      html { font-size: 100%; scroll-behavior: smooth; }
+      body { font-family: var(--base-font); line-height: 1.8; color: var(--main-color); margin: 0; background-color: var(--bg-cream); font-size: 16px; }
+      a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+      img { max-width: 100%; display: block; border-radius: 8px; }
+      .wrapper { max-width: 1100px; margin: 0 auto; padding: 0 4%; }
+      .big-bg { background-size: cover; background-position: center top; background-repeat: no-repeat; position: relative; }
+      .big-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(250, 247, 242, 0.3); pointer-events: none; }
+      .page-title { font-size: 5rem; font-family: var(--title-font); text-transform: uppercase; font-weight: normal; color: var(--brown-dark); text-shadow: 2px 2px 4px rgba(0,0,0,0.1); margin-bottom: 5px; }
+      .page-header { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; position: relative; z-index: 10; }
+      .logo { width: 210px; transition: transform 0.3s ease; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+      .logo:hover { transform: scale(1.05); }
+      .main-nav { display: flex; font-size: 1.1rem; text-transform: uppercase; list-style: none; margin-top: 20px; }
+      .main-nav li + li { margin-left: 30px; }
+      .main-nav a { color: var(--link-color); transition: all 0.3s ease; position: relative; font-weight: 500; }
+      .main-nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--hover-color); transition: width 0.3s ease; }
+      .main-nav a:hover::after { width: 100%; }
+      .main-nav a:hover { color: var(--hover-color); }
+      #menu { background-image: url(images/image3.jpeg); min-height: 70vh; background-attachment: fixed; }
+      .menu-content { max-width: 800px; margin: 1% auto 2% auto; text-align: center; position: relative; z-index: 1; background: rgba(255, 255, 255, 0.92); padding: 25px 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(139, 115, 85, 0.15); }
+      .menu-content p { color: var(--brown-light); font-size: 1.05rem; line-height: 1.7; margin: 5px 0; }
+      .grid { display: grid; gap: 30px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 4%; margin-bottom: 50px; padding: 20px 0; }
+      .grid .item { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 3px 20px rgba(139, 115, 85, 0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; border: 1px solid rgba(201, 168, 106, 0.1); position: relative; }
+      .grid .item a { text-decoration: none; color: inherit; display: block; }
+      .grid .item:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 10px 35px rgba(139, 115, 85, 0.25); border-color: var(--accent-color); }
+      .grid .item img { width: 100%; height: 220px; object-fit: cover; border-radius: 0; transition: transform 0.4s ease; }
+      .grid .item:hover img { transform: scale(1.08); }
+      .grid .item p { padding: 20px; font-size: 1rem; line-height: 1.6; color: var(--main-color); margin: 0; min-height: 90px; display: flex; align-items: center; background: linear-gradient(to bottom, #fff, var(--bg-cream)); font-weight: 400; }
+      .grid .item::after { content: '▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem; color: rgba(255, 255, 255, 0.8); opacity: 0; transition: opacity 0.3s ease; text-shadow: 0 2px 10px rgba(0,0,0,0.3); pointer-events: none; }
+      .grid .item:hover::after { opacity: 1; }
+      footer { background: var(--brown-dark); text-align: center; padding: 30px 0; }
+      footer p { color: var(--bg-cream); font-size: 0.875rem; }
+      .lang-switch { position: fixed; top: 80px; right: 20px; z-index: 1000; display: flex; gap: 8px; background: rgba(255, 255, 255, 0.95); padding: 10px; border-radius: 25px; box-shadow: 0 4px 15px rgba(139, 115, 85, 0.25); }
+      .lang-btn { padding: 8px 16px; border: 2px solid #c9a86a; background: white; color: #5d4e37; border-radius: 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
+      .lang-btn:hover { background: #f5f0e8; transform: translateY(-2px); }
+      .lang-btn.active { background: linear-gradient(135deg, #c9a86a, #8b7355); color: white; border-color: #8b7355; }
+      .lang-ko, .lang-jp, .lang-cn { display: none !important; }
+      html[lang="ko"] .lang-ko { display: block !important; }
+      html[lang="ja"] .lang-jp { display: block !important; }
+      html[lang="zh"] .lang-cn { display: block !important; }
+      @media (max-width: 900px) { .page-title { font-size: 3.5rem; } .grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; } .menu-content { margin-top: 15%; padding: 30px; } }
+      @media (max-width: 600px) {
+        .page-title { font-size: 2.5rem; }
+        .page-header { flex-direction: column; }
+        .main-nav { font-size: 1rem; margin-top: 10px; }
+        .main-nav li + li { margin-left: 20px; }
+        .grid { grid-template-columns: 1fr; }
+        .grid .item img { height: 180px; }
+        .menu-content { margin-top: 20%; padding: 25px; }
+        .menu-content p br { display: none; }
+        .lang-switch { top: auto !important; bottom: 20px !important; right: 50% !important; transform: translateX(50%) !important; }
+        .lang-btn { padding: 6px 12px !important; font-size: 0.85rem !important; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="switchLang('ko')">한국어</button>
+      <button class="lang-btn" onclick="switchLang('ja')">日本語</button>
+      <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+    </div>
+
+    <div id="menu" class="big-bg">
+      <header class="page-header wrapper">
+        <h1><a href="index.html"><img class="logo" src="images/logo.svg" alt="밥심이의 일상 로고" loading="lazy" /></a></h1>
+        <nav>
+          <ul class="main-nav">
+            <li><a href="news.html">News</a></li>
+            <li><a href="menu.html">Video</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="menu-content wrapper">
+        <h2 class="page-title">Videos</h2>
+        <div class="lang-ko"><p>밥심이의 일상을 담은 영상들을 만나보세요</p></div>
+        <div class="lang-jp"><p>밥심이의 일상の日常を収めた映像をご覧ください</p></div>
+        <div class="lang-cn"><p>观看记录밥심이의 일상日常的视频</p></div>
+      </div>
+    </div>
+
+    <div class="wrapper grid">
+      <div class="item">
+        <a href="https://youtu.be/dXR85y7PKzI?si=DukwrQVI2I03tTeb" target="_blank">
+          <img src="images/day2.jpeg" alt="운전면허 도로주행 연습" />
+          <p class="lang-ko">운전면허 도로주행 연습 / 평범한 대학생의 9월 2주</p>
+          <p class="lang-jp">運転免許路上練習 / 普通の大学生の9月2週間</p>
+          <p class="lang-cn">驾照路考练习 / 普通大学生的9月2周</p>
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="https://youtu.be/ypxOKmr31kc?si=CFckr5PBP8uJAGXe" target="_blank">
+          <img src="images/day4.jpeg" alt="중국 여행 VLOG" />
+          <p class="lang-ko">중국 3개 도시 여행 VLOG 🇨🇳</p>
+          <p class="lang-jp">中国3都市旅行VLOG 🇨🇳</p>
+          <p class="lang-cn">中国3城市旅行VLOG 🇨🇳</p>
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="https://youtu.be/yciLb1iGeGs?si=5Y7vUnfH7X_i8vmA" target="_blank">
+          <img src="images/day3.jpeg" alt="일상 브이로그" />
+          <p class="lang-ko">대학생의 일상 브이로그</p>
+          <p class="lang-jp">大学生の日常Vlog</p>
+          <p class="lang-cn">大学生的日常Vlog</p>
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="https://youtu.be/fxQaMuVNfmQ?si=fkz8MHkG0SmqoD1k" target="_blank">
+          <img src="images/day7.jpeg" alt="일본 생활" />
+          <p class="lang-ko">일본 도쿄 생활 🇯🇵</p>
+          <p class="lang-jp">日本東京生活 🇯🇵</p>
+          <p class="lang-cn">日本东京生活 🇯🇵</p>
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="https://youtu.be/XcIbfYqRha4?si=PfvytwWOkjbOf5rC" target="_blank">
+          <img src="images/day8.jpeg" alt="벼락치기 브이로그" />
+          <p class="lang-ko">벼락치기 브이로그 📚</p>
+          <p class="lang-jp">勉強Vlog 📚</p>
+          <p class="lang-cn">学习Vlog 📚</p>
+        </a>
+      </div>
+
+      <div class="item">
+        <a href="https://youtu.be/UKv2w0siglo?si=F2kScwbBZubTvcoR" target="_blank">
+          <img src="images/day5.jpeg" alt="여행 브이로그" />
+          <p class="lang-ko">여행 브이로그 ✈️</p>
+          <p class="lang-jp">旅行Vlog ✈️</p>
+          <p class="lang-cn">旅行Vlog ✈️</p>
+        </a>
+      </div>
+    </div>
+
+    <footer>
+      <div class="wrapper"><p><small>&copy; 2025 밥심이의 일상</small></p></div>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const savedLang = localStorage.getItem('preferredLang') || 'ko';
+        applyLanguage(savedLang);
+      });
+      function switchLang(lang) { localStorage.setItem('preferredLang', lang); applyLanguage(lang); }
+      function applyLanguage(lang) {
+        document.documentElement.lang = lang;
+        const buttons = document.querySelectorAll('.lang-btn');
+        buttons.forEach(btn => {
+          btn.classList.remove('active');
+          if ((lang === 'ko' && btn.textContent === '한국어') || (lang === 'ja' && btn.textContent === '日本語') || (lang === 'zh' && btn.textContent === '中文')) {
+            btn.classList.add('active');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

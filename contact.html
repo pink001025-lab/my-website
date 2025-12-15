@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>밥심이의 일상 - CONTACT</title>
+    <meta name="description" content="평범한 대학생의 하루를 담은 공간 입니다" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet" />
+    
+    <style>
+      :root { --main-color: #5d4e37; --accent-color: #c9a86a; --bg-warm: #f5f0e8; --bg-cream: #faf7f2; --brown-dark: #4a3f2f; --brown-light: #8b7355; --link-color: #b89968; --hover-color: #d4af76; --button-color: #8b7355; --button-hover: #6d5a43; --base-font: "Jua", sans-serif; --title-font: "Jua", "Philosopher", serif; }
+      html { font-size: 100%; scroll-behavior: smooth; }
+      body { font-family: var(--base-font); line-height: 1.8; color: var(--main-color); margin: 0; background-color: var(--bg-cream); font-size: 16px; }
+      a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+      img { max-width: 100%; display: block; border-radius: 8px; }
+      iframe { width: 100%; border: none; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+      .wrapper { max-width: 1100px; margin: 0 auto; padding: 0 4%; }
+      .big-bg { background-size: cover; background-position: center top; background-repeat: no-repeat; position: relative; }
+      .big-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(250, 247, 242, 0.3); pointer-events: none; }
+      .page-title { font-size: 5rem; font-family: var(--title-font); text-transform: uppercase; font-weight: normal; color: var(--brown-dark); text-shadow: 2px 2px 4px rgba(0,0,0,0.1); margin-bottom: 10px; text-align: center; }
+      .sub-title { font-size: 1.375rem; padding: 0 8px 8px; border-bottom: 2px var(--accent-color) solid; font-weight: normal; color: var(--brown-dark); }
+      .page-header { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; position: relative; z-index: 10; }
+      .logo { width: 210px; transition: transform 0.3s ease; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+      .logo:hover { transform: scale(1.05); }
+      .main-nav { display: flex; font-size: 1.1rem; text-transform: uppercase; list-style: none; margin-top: 20px; }
+      .main-nav li + li { margin-left: 30px; }
+      .main-nav a { color: var(--link-color); transition: all 0.3s ease; position: relative; font-weight: 500; }
+      .main-nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--hover-color); transition: width 0.3s ease; }
+      .main-nav a:hover::after { width: 100%; }
+      .main-nav a:hover { color: var(--hover-color); }
+      #contact { background: url(images/contact-bg.jpeg) center/cover no-repeat; min-height: 100vh; }
+      #contact .page-title { position: relative; z-index: 1; }
+      form { max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 16px; box-shadow: 0 4px 25px rgba(139, 115, 85, 0.2); }
+      form div { margin-bottom: 20px; }
+      label { font-size: 1.125rem; margin-bottom: 10px; display: block; font-weight: 500; color: var(--brown-dark); }
+      input[type="text"], input[type="email"], textarea { background: rgba(255,255,255,.8); border: 1px solid rgba(139, 115, 85, 0.3); border-radius: 8px; padding: 12px; font-size: 1rem; width: 100%; transition: all 0.3s ease; font-family: inherit; color: var(--main-color); box-sizing: border-box; }
+      input::placeholder, textarea::placeholder { color: rgba(93, 78, 55, 0.5); }
+      input:focus, textarea:focus { outline: none; background: rgba(255,255,255,.9); border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(201, 168, 106, 0.15); }
+      textarea { height: 6rem; resize: vertical; }
+      input[type="submit"] { border: none; cursor: pointer; background: var(--button-color); color: #fff; padding: 12px 30px; border-radius: 25px; transition: all 0.3s ease; font-size: 1.1rem; font-weight: 500; box-shadow: 0 4px 15px rgba(139, 115, 85, 0.25); width: auto; }
+      input[type="submit"]:hover { background: var(--button-hover); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(139, 115, 85, 0.35); }
+      #sns { background: var(--bg-warm); padding: 60px 0; }
+      #sns .wrapper { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 25px; }
+      .sns-box { width: calc(33.333% - 20px); margin-bottom: 20px; background: #fff; padding: 15px; border-radius: 12px; box-shadow: 0 2px 12px rgba(139, 115, 85, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; min-height: 320px; display: flex; flex-direction: column; }
+      .sns-box:hover { transform: translateY(-3px); box-shadow: 0 5px 20px rgba(139, 115, 85, 0.15); }
+      #sns .sub-title { margin-bottom: 12px; color: var(--brown-dark); font-size: 1.1rem; border-bottom-color: var(--accent-color); padding-bottom: 6px; }
+      .sns-box > div, .sns-box > iframe, .sns-box > a { flex: 1; min-height: 280px; }
+      #insta iframe { height: 320px !important; max-height: 400px; }
+      .twitter-timeline { max-height: 320px !important; }
+      .sns-box iframe[src*="youtube"] { height: 280px !important; }
+      footer { background: var(--brown-dark); text-align: center; padding: 30px 0; }
+      footer p { color: var(--bg-cream); font-size: 0.875rem; }
+      .lang-switch { position: fixed; top: 80px; right: 20px; z-index: 1000; display: flex; gap: 8px; background: rgba(255, 255, 255, 0.95); padding: 10px; border-radius: 25px; box-shadow: 0 4px 15px rgba(139, 115, 85, 0.25); }
+      .lang-btn { padding: 8px 16px; border: 2px solid #c9a86a; background: white; color: #5d4e37; border-radius: 20px; cursor: pointer; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; }
+      .lang-btn:hover { background: #f5f0e8; transform: translateY(-2px); }
+      .lang-btn.active { background: linear-gradient(135deg, #c9a86a, #8b7355); color: white; border-color: #8b7355; }
+      .lang-ko { display: block; } .lang-jp { display: none; } .lang-cn { display: none; }
+      html[lang="ja"] .lang-ko { display: none; } html[lang="ja"] .lang-jp { display: block; } html[lang="ja"] .lang-cn { display: none; }
+      html[lang="zh"] .lang-ko { display: none; } html[lang="zh"] .lang-jp { display: none; } html[lang="zh"] .lang-cn { display: block; }
+      @media (max-width: 900px) { .page-title { font-size: 3.5rem; } .sns-box { width: calc(50% - 15px); } }
+      @media (max-width: 600px) {
+        .page-title { font-size: 2.5rem; }
+        .page-header { flex-direction: column; }
+        .main-nav { font-size: 1rem; margin-top: 10px; }
+        .main-nav li + li { margin-left: 20px; }
+        form { padding: 25px; }
+        .sns-box { width: 100%; min-height: auto; }
+        #insta iframe { height: 400px !important; }
+        .lang-switch { top: auto !important; bottom: 20px !important; right: 50% !important; transform: translateX(50%) !important; }
+        .lang-btn { padding: 6px 12px !important; font-size: 0.85rem !important; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="switchLang('ko')">한국어</button>
+      <button class="lang-btn" onclick="switchLang('ja')">日本語</button>
+      <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+    </div>
+
+    <div id="contact" class="big-bg">
+      <header class="page-header wrapper">
+        <h1><a href="index.html"><img class="logo" src="images/logo.svg" alt="밥심이의 일상 로고" loading="lazy" /></a></h1>
+        <nav>
+          <ul class="main-nav">
+            <li><a href="news.html">News</a></li>
+            <li><a href="menu.html">Video</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <div class="wrapper">
+        <h2 class="page-title">Contact</h2>
+        <form action="#" method="post">
+          <div class="lang-ko">
+            <div>
+              <label for="name-ko">이름</label>
+              <input type="text" id="name-ko" name="your-name" placeholder="이름을 입력하세요" aria-label="이름 입력" />
+            </div>
+            <div>
+              <label for="email-ko">메일 주소</label>
+              <input type="email" id="email-ko" name="your-email" placeholder="example@gmail.com" aria-label="메일 주소 입력" />
+            </div>
+            <div>
+              <label for="message-ko">메시지</label>
+              <textarea id="message-ko" name="your-message" placeholder="메시지를 입력하세요" aria-label="메시지 입력"></textarea>
+            </div>
+            <input type="submit" class="button" value="전송" />
+          </div>
+
+          <div class="lang-jp">
+            <div>
+              <label for="name-jp">お名前</label>
+              <input type="text" id="name-jp" name="your-name" placeholder="お名前を入力してください" aria-label="お名前入力" />
+            </div>
+            <div>
+              <label for="email-jp">メールアドレス</label>
+              <input type="email" id="email-jp" name="your-email" placeholder="example@gmail.com" aria-label="メールアドレス入力" />
+            </div>
+            <div>
+              <label for="message-jp">メッセージ</label>
+              <textarea id="message-jp" name="your-message" placeholder="メッセージを入力してください" aria-label="メッセージ入力"></textarea>
+            </div>
+            <input type="submit" class="button" value="送信" />
+          </div>
+
+          <div class="lang-cn">
+            <div>
+              <label for="name-cn">姓名</label>
+              <input type="text" id="name-cn" name="your-name" placeholder="请输入您的姓名" aria-label="姓名输入" />
+            </div>
+            <div>
+              <label for="email-cn">电子邮箱</label>
+              <input type="email" id="email-cn" name="your-email" placeholder="example@gmail.com" aria-label="电子邮箱输入" />
+            </div>
+            <div>
+              <label for="message-cn">留言</label>
+              <textarea id="message-cn" name="your-message" placeholder="请输入您的留言" aria-label="留言输入"></textarea>
+            </div>
+            <input type="submit" class="button" value="发送" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <section id="sns">
+      <div class="wrapper">
+        <div class="sns-box">
+          <h3 class="sub-title">Instagram</h3>
+          <div id="insta" data-url="https://www.instagram.com/p/DQJwxVpEimN/embed" style="width: 100%; max-width: 540px; margin: auto">
+            <p class="lang-ko">인스타그램 불러오는 중...</p>
+            <p class="lang-jp">Instagram読み込み中...</p>
+            <p class="lang-cn">Instagram加载中...</p>
+          </div>
+        </div>
+
+        <div class="sns-box">
+          <h3 class="sub-title">X (Twitter)</h3>
+          <a class="twitter-timeline" data-width="100%" data-height="320" href="https://twitter.com/wongabin176687?ref_src=twsrc%5Etfw">
+            <span class="lang-ko">트위터 타임라인 불러오는 중...</span>
+            <span class="lang-jp">Twitterタイムライン読み込み中...</span>
+            <span class="lang-cn">Twitter时间线加载中...</span>
+          </a>
+        </div>
+
+        <div class="sns-box">
+          <h3 class="sub-title">YouTube</h3>
+          <iframe width="100%" height="280" src="https://www.youtube.com/embed/pwWeQHi_tZU?si=f72TlX53pU19nfih" title="YouTube video player" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrapper"><p><small>&copy; 2025 밥심이의 일상</small></p></div>
+    </footer>
+
+    <script defer>
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem('preferredLang') || 'ko';
+        applyLanguage(savedLang);
+        const instaBox = document.getElementById("insta");
+        if (instaBox) {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                instaBox.innerHTML = `<iframe src="${instaBox.dataset.url}" width="100%" height="320" frameborder="0" loading="lazy"></iframe>`;
+                observer.disconnect();
+              }
+            });
+          });
+          observer.observe(instaBox);
+        }
+      });
+    </script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+      function switchLang(lang) { localStorage.setItem('preferredLang', lang); applyLanguage(lang); }
+      function applyLanguage(lang) {
+        document.documentElement.lang = lang;
+        const buttons = document.querySelectorAll('.lang-btn');
+        buttons.forEach(btn => {
+          btn.classList.remove('active');
+          if ((lang === 'ko' && btn.textContent === '한국어') || (lang === 'ja' && btn.textContent === '日本語') || (lang === 'zh' && btn.textContent === '中文')) {
+            btn.classList.add('active');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
